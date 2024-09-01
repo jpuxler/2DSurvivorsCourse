@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr0wscw3drdtc"]
+[gd_scene load_steps=22 format=3 uid="uid://dr0wscw3drdtc"]
 
 [ext_resource type="Script" path="res://scenes/game_object/wizard_enemy/wizard_enemy.gd" id="1_pehe8"]
 [ext_resource type="PackedScene" uid="uid://irgxjq5knple" path="res://scenes/component/health_component.tscn" id="1_yp4f4"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bwaw5pij1o8fq" path="res://scenes/component/vial_drop_component.tscn" id="4_fem8b"]
 [ext_resource type="PackedScene" uid="uid://bwn7t076yoreq" path="res://scenes/component/hit_flash_component.tscn" id="5_0ag00"]
 [ext_resource type="Shader" path="res://scenes/component/hit_flash_component.gdshader" id="6_yq8qx"]
+[ext_resource type="PackedScene" uid="uid://c84xvlwbljdiq" path="res://scenes/component/random_stream_player_2d_component.tscn" id="8_wfb86"]
+[ext_resource type="AudioStream" uid="uid://bhsruhi6nefrl" path="res://assets/audio/footstep_carpet_000.ogg" id="9_5kd3u"]
+[ext_resource type="AudioStream" uid="uid://b3nva61wfwr2e" path="res://assets/audio/footstep_carpet_001.ogg" id="10_eghn8"]
+[ext_resource type="AudioStream" uid="uid://008skt4cpm11" path="res://assets/audio/footstep_carpet_002.ogg" id="11_tykvb"]
+[ext_resource type="AudioStream" uid="uid://c7l5m4le30wai" path="res://assets/audio/footstep_carpet_003.ogg" id="12_fwqw3"]
+[ext_resource type="AudioStream" uid="uid://oyujwrva1pqu" path="res://assets/audio/footstep_carpet_004.ogg" id="13_a7lrq"]
 
 [sub_resource type="Animation" id="Animation_y8egy"]
 length = 0.001
@@ -153,6 +159,10 @@ hit_flash_material = SubResource("ShaderMaterial_ed2nr")
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_34pkj")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
+
+[node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("8_wfb86")]
+max_distance = 300.0
+streams = Array[AudioStream]([ExtResource("9_5kd3u"), ExtResource("10_eghn8"), ExtResource("11_tykvb"), ExtResource("12_fwqw3"), ExtResource("13_a7lrq")])
 
 [node name="Visuals" type="Node2D" parent="." groups=["enemy"]]
 light_mask = 8

@@ -1,9 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2llqxo8ww4hh"]
+[gd_scene load_steps=19 format=3 uid="uid://b2llqxo8ww4hh"]
 
 [ext_resource type="Texture2D" uid="uid://d20pm7347yea8" path="res://scenes/game_object/player/tile_0096.png" id="1_nnu7p"]
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_sa4wu"]
+[ext_resource type="PackedScene" uid="uid://cabutx7463oir" path="res://scenes/component/velocity_component.tscn" id="2_n71c3"]
 [ext_resource type="Script" path="res://scenes/component/health_component.gd" id="2_thgr5"]
 [ext_resource type="PackedScene" uid="uid://c0vrktpwsxux0" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_ud6eu"]
+[ext_resource type="PackedScene" uid="uid://c84xvlwbljdiq" path="res://scenes/component/random_stream_player_2d_component.tscn" id="5_ddy1l"]
+[ext_resource type="AudioStream" uid="uid://co41ft812o5a5" path="res://assets/audio/impactMining_000.ogg" id="6_ofrhc"]
+[ext_resource type="AudioStream" uid="uid://dekgdq5oh1qw5" path="res://assets/audio/impactMining_001.ogg" id="7_eoxip"]
+[ext_resource type="AudioStream" uid="uid://h5apnpvpkggu" path="res://assets/audio/impactMining_002.ogg" id="8_uacyb"]
+[ext_resource type="AudioStream" uid="uid://c623qrqtxdq3i" path="res://assets/audio/impactMining_003.ogg" id="9_p14ti"]
+[ext_resource type="AudioStream" uid="uid://7gbbrt8yol4t" path="res://assets/audio/impactMining_004.ogg" id="10_yoebo"]
 
 [sub_resource type="Animation" id="Animation_c55w7"]
 length = 0.001
@@ -120,12 +127,19 @@ libraries = {
 "": SubResource("AnimationLibrary_kltxc")
 }
 
+[node name="VelocityComponent" parent="." instance=ExtResource("2_n71c3")]
+max_speed = 90
+acceleration = 25.0
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_thgr5")
 
 [node name="Abilities" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="Abilities" instance=ExtResource("2_ud6eu")]
+
+[node name="HitRandomStreamPlayer" parent="." instance=ExtResource("5_ddy1l")]
+streams = Array[AudioStream]([ExtResource("6_ofrhc"), ExtResource("7_eoxip"), ExtResource("8_uacyb"), ExtResource("9_p14ti"), ExtResource("10_yoebo")])
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5

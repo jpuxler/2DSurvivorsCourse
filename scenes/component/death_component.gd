@@ -18,5 +18,7 @@ func on_died():
 	var entities = get_tree().get_first_node_in_group("entities_layer")
 	get_parent().remove_child(self)
 	entities.add_child(self)
-	$AnimationPlayer.play("default")
+	
 	global_position = spawn_position
+	$AnimationPlayer.play("default")
+	$HitRandomAudioPlayerComponent.play_random()
