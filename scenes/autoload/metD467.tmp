@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://clpp3h4s1kcdn"]
+
+[sub_resource type="GDScript" id="GDScript_1eyj4"]
+script/source = "extends Resource
+class_name MetaUpgrade
+
+@export var id: String
+@export var max_quantity: int = 1
+@export var title: String
+@export_multiline var description: String
+"
+
+[node name="MetaProgression" type="Node"]
+script = SubResource("GDScript_1eyj4")

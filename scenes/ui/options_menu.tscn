@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://evosa86cam6p"]
+[gd_scene load_steps=5 format=3 uid="uid://evosa86cam6p"]
 
 [ext_resource type="Script" path="res://scenes/ui/options_menu.gd" id="1_ho2ke"]
 [ext_resource type="TileSet" uid="uid://ckujr8powcder" path="res://resources/tileset.tres" id="2_hx6u3"]
+[ext_resource type="PackedScene" uid="uid://cux665rrrd66w" path="res://scenes/ui/vignette.tscn" id="2_j3itr"]
 [ext_resource type="PackedScene" uid="uid://ch5tmybdfmgtq" path="res://scenes/ui/sound_button.tscn" id="3_vyn46"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_ho2ke")
+
+[node name="Vignette" parent="." instance=ExtResource("2_j3itr")]
+layer = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(27, 12)
@@ -41,6 +46,7 @@ theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "Options"
 horizontal_alignment = 1
@@ -54,6 +60,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxOptionContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "SFX Volume
 "
 
@@ -68,6 +75,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "Music Volume
 "
 
@@ -82,6 +90,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "Window Mode
 "
 
